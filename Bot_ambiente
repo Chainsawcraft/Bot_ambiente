@@ -1,0 +1,37 @@
+import discord
+from discord.ext import commands
+from discord.utils import get
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+
+@bot.command()
+async def Contaminacion(ctx):
+    auto= discord.Embed(title = "La contaminacion", description="Se entiende por contaminación ambiental cuando existe la presencia de sustancias nocivas en el agua, aire o suelo. Las sustancias nocivas son lo que llamamos contaminantes ambientales, pudiendo tener diferente origen. Además, se encuentran en diferentes concentraciones y en diferentes lugares.", color=discord.Color.green())
+    auto.set_image(url="https://cdn.discordapp.com/attachments/1213938190923333693/1229166756766158858/Sin_titulo.jpeg?ex=662eb1bf&is=661c3cbf&hm=28d1cd521d60839d6b26d25f928a6ddc63d3e21eb9253e23b0ecccabc50a6fd3&")
+    await ctx.send(embed = auto)  # This line sends the embed message
+c
+
+@bot.command()
+async def heh(ctx, count_heh = 5):
+    await ctx.send("he" * count_heh)
+
+
+@bot.command()
+async def mem(ctx):
+    img_mem = os.listdir("img")
+    img_mostrar= random.choice(img_mem)
+    
+    with open(f'img/{img_mostrar}'  , 'rb') as f:
+        
+        # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
+        picture = discord.File(f)
+    # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
+
+        
+bot.run("Your Token")
